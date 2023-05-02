@@ -1,0 +1,31 @@
+.narbar_main {
+    width: 100%;
+    height: 80px;
+    background-color: teal;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0 50px;
+}
+
+.narbar_main h2 {
+    color: white;
+}
+
+.narbar_main p {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.cart {
+    position: relative;
+}
+
+.cart span {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    color: red;
+}
