@@ -75,7 +75,7 @@ const Products = () => {
         </div>
         <ul className="pagination">
         {/* <li onClick={prevPage} disabled={currentPage === 1}> */}
-        <li onClick={prevPage} className={currentPage == 1 ? 'show': 'hide'}>
+        <li onClick={prevPage} className={currentPage == 1 ? 'hide' : 'show'}>
           Previous
         </li>
 
@@ -87,7 +87,7 @@ const Products = () => {
         ))}
 
         {/* <li onClick={nextPage} disabled={currentPage === totalPages}> */}
-        <li onClick={nextPage} className={currentPage == totalPages ? 'show': 'hide'}>
+        <li onClick={nextPage} className={currentPage == totalPages ? 'hide' : 'show'}>
           Next
         </li>
       </ul>

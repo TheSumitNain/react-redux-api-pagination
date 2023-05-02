@@ -86,10 +86,10 @@
     cursor: none;
   }
 
-  .show {
+  .hide {
     visibility: hidden;
   }
 
-  .hide {
+  .show {
     display: block;
   }
