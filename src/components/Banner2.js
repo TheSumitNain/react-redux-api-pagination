@@ -24,7 +24,7 @@ const Banner2 = () => {
       slidesToShow: 5,
       slidesToScroll: -1,
       autoplay: true,
-      speed: 4100,
+      speed: 8000,
       autoplaySpeed: 0,
       cssEase: "linear",  
       nextArrow: <SampleNextArrow />,
@@ -34,9 +34,9 @@ const Banner2 = () => {
   const settings2 = {
     infinite: true,
     slidesToShow: 5.5,
-    slidesToScroll: -1,
+    slidesToScroll: 1,
     autoplay: true,
-    speed: 4000,
+    speed: 8000,
     autoplaySpeed: 0,
     cssEase: "linear",  
     nextArrow: <SampleNextArrow />,
@@ -45,10 +45,10 @@ const Banner2 = () => {
 
 const settings3 = {
     infinite: true,
-    slidesToShow: 5.8,
+    slidesToShow: 5.5,
     slidesToScroll: -1,
     autoplay: true,
-    speed: 4100,
+    speed: 7000,
     autoplaySpeed: 0,
     cssEase: "linear",  
     nextArrow: <SampleNextArrow />,
