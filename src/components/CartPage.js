@@ -1,68 +1,64 @@
-import React, { useState } from "react";
+import React from "react";
+import {
+  addToCart,
+  minusQuantity,
+  plusQuantity,
+  deleteItem,
+  resetCart,
+} from "../redux/rootReducer";
 import { useSelector, useDispatch } from "react-redux";
 import "../css/cartpage.css";
-import { deleteItem, minusQuantity, plusQuantity, resetCart } from "../redux/rootReducer";
+import Banner2 from "./Banner2";
 
 const CartPage = () => {
   const productData = useSelector((state) => state.counterSlice.productData);
-//   const [state, setState] = useState(productData);
   const dispatch = useDispatch();
 
   return (
     <>
+      <Banner2/>
       <div className="cart_main">
-        <div className="cart_box">
           {productData.map((item) => {
             return (
-              <div className="cart_inner">
-                <div className="cart_img">
-                  <img src={item.image} alt="pic" />
+              <div className="cart_card">
+                <div className="cart_card_inner">
+                  <div className="cart_img_div">
+                    <img src={item.image} alt="cart_image" />
+                  </div>
+                  <div>
+                    <p>{item.title}</p>
+                  </div>
+                  <div>
+                    <p className="quantity">
+                      <span onClick={() => dispatch(minusQuantity({
+                        id: item.id,
+                            title: item.title,
+                            description: item.description,
+                            price: item.price,
+                            quantity: 1,
+                            image: item.image
+                      }))}
+                      > - </span>
+                      {item.quantity}
+                      <span  onClick={() => dispatch(plusQuantity({
+                        id: item.id,
+                            title: item.title,
+                            description: item.description,
+                            price: item.price,
+                            quantity: 1,
+                            image: item.image
+                      }))}
+                      > + </span>
+                    </p>
+                  </div>
+                  <div>
+                    <button onClick={() => dispatch(deleteItem(item.id))}> remove </button>
+                  </div>
                 </div>
-                <p>{item.title.slice(0, 45)}</p>
-              
-                <button className="btn"
-                  onClick={() =>
-                    dispatch(
-                      minusQuantity({
-                        id: item.id,
-                        title: item.title,
-                        image: item.image,
-                        description: item.description,
-                        category: item.category,
-                        quantity: 1,
-                      })
-                    )
-                  }
-                >
-                  -
-                </button>
-                <p> {item.quantity} </p>
-                <button className="btn"
-                  onClick={() =>
-                    dispatch(
-                      plusQuantity({
-                        id: item.id,
-                        title: item.title,
-                        image: item.image,
-                        description: item.description,
-                        category: item.category,
-                        quantity: 1,
-                      })
-                    )
-                  }
-                >
-                  +
-                </button>
-                <button className="remove" onClick={() => dispatch(deleteItem(item.id))}>
-                  remove
-                </button>
               </div>
-              
             );
           })}
-          <button className="reset" onClick={() => dispatch(resetCart())}>reset</button>
         </div>
-      </div>
     </>
   );
 };
